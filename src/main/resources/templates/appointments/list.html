@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" >
+
+<head>
+    <title>Appointments : View all</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/js/jquery-ui.css" th:href="@{/js/jquery-ui.css}"/>
+    <link rel="stylesheet" href="/js/jquery-ui.theme.css" th:href="@{/js/jquery-ui.theme.css}"/>
+    <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="/js/application.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Appointments</h4>
+                <div class="panel panel-default">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="appointment : ${allAppointments}">
+                            <td th:text="${appointment.getDescription()}"></td>
+                            <td th:text="${appointment.getFormattedAppointmentDate()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Create appointment</h4>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="post" action="#" th:action="@{/appointment/create}" th:object="${appointmentCommand}">
+                            <ul>
+                                <p th:if="${successMessage!=null}">
+                                <div class="alert alert-success">
+                                    <p th:text="${successMessage}"></p>
+                                </div>
+                                </p>
+                                <p th:if="${errorMessage!=null}">
+                                <div class="alert alert-success">
+                                    <p th:text="${errorMessage}"></p>
+                                </div>
+                                </p>
+                                <p th:if="${#fields.hasAnyErrors()}">
+                                    <div class="alert alert-warning">
+                                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+                                    </div>
+                                </p>
+                            </ul>
+                            <div class="form-group">
+                                <label for="date" class="col-sm-3 control-label">Date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="date" name="appointmentDate" th:field="*{appointmentDate}"/>
+                                    <p th:if="${#fields.hasErrors('appointmentDate')}" th:errors="*{appointmentDate}">Incorrect date</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="description" name="description" th:field="*{description}"/>
+                                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Enter a description</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 text-right">
+                                    <label for="mySubmit" class="btn btn btn-default preview-add-button"><i class="glyphicon glyphicon-plus"></i> Create</label>
+                                    <input id="mySubmit" type="submit" value="Go" class="hidden" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
