@@ -125,3 +125,10 @@
 0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:06:15 +0100] "POST /appointment/create HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:06:15 +0100] "GET /appointments HTTP/1.1" 200 3942
 0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:06:15 +0100] "GET /js/application.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:14:53 +0100] "GET /appointments HTTP/1.1" 200 3569
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:14:53 +0100] "GET /js/application.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:15:06 +0100] "POST /appointment/create HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:15:06 +0100] "GET /appointments HTTP/1.1" 200 3942
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:15:59 +0100] "GET /js/images/ui-icons_ef8c08_256x240.png HTTP/1.1" 200 4549
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:16:15 +0100] "POST /appointment/create HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [04/Jul/2015:19:16:15 +0100] "GET /appointments HTTP/1.1" 200 4104

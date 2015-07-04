@@ -4,6 +4,7 @@ import demo.naked.appointment.domain.Appointment;
 import demo.naked.appointment.exceptions.BusinessException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +44,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
 
         appointmentList = IteratorUtils.toList(iterable.iterator());
+        if(appointmentList !=null) {
+            Collections.sort(appointmentList);
+        }
         return appointmentList;
     }
 
@@ -52,7 +56,11 @@ public class AppointmentServiceImpl implements AppointmentService {
         Iterable<Appointment> iterable = appointmentRespository.findAll();
         appointmentList = IteratorUtils.toList(iterable.iterator());
 
-        return appointmentList;
+        if(appointmentList !=null) {
+            Collections.sort(appointmentList);
+        }
+
+        return  appointmentList;
     }
 
     @Override
