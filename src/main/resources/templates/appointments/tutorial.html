@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" >
+<head>
+    <title>Tutorial Thymeleaf</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/js/jquery-ui.css" th:href="@{/js/jquery-ui.css}"/>
+    <link rel="stylesheet" href="/js/jquery-ui.theme.css" th:href="@{/js/jquery-ui.theme.css}"/>
+    <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="/js/application.js" type="text/javascript"></script>
+</head>
+<body>
+    <h3 th:text="#{appointment.header.title}"></h3>
+
+    <ul>
+        <li th:each="appointment: ${allAppointments}">
+            <span th:text="${appointment.description}"></span>
+        </li>
+        <p th:text="@{/appointment/tutorial(id=23)}"></p>
+    </ul>
+
+    <a th:href="@{/appointments}"> All appointments</a>
+</body>
+</html>

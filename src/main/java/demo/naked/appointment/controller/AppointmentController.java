@@ -42,15 +42,22 @@ public class AppointmentController {
 
     @RequestMapping(value = "/appointments")
     public String list(){
-        return "appointments/list";
+        return Views.APPOINTMENT_LIST;
     }
+
+
+    @RequestMapping(value = "/appointments/tutorial")
+    public String tutorial(){
+        return Views.APPOINTMENT_TUTORIAL;
+    }
+
 
     @RequestMapping(value = "/appointment/create", method = RequestMethod.POST)
     public String create(@Valid @ModelAttribute AppointmentCommand appointmentCommand, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
 
         if(bindingResult.hasErrors()) {
             System.out.println("Appointment has errors .....");
-            return "appointments/list";
+            return Views.APPOINTMENT_LIST;
         }
 
         try {
