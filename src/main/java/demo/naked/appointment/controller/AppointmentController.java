@@ -42,12 +42,14 @@ public class AppointmentController {
 
     @RequestMapping(value = "/appointments")
     public String list(){
+
         return Views.APPOINTMENT_LIST;
     }
 
 
     @RequestMapping(value = "/appointments/tutorial")
     public String tutorial(){
+
         return Views.APPOINTMENT_TUTORIAL;
     }
 
