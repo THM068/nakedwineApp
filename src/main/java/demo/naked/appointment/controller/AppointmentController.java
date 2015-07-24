@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -95,6 +96,12 @@ public class AppointmentController {
         return appointmentCommand;
     }
 
+    @ModelAttribute("planets")
+    public List<String> populatePlanets() {
+        return Arrays.asList(new String[]{
+                "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
+        });
+    }
     private Appointment mapCommandToAppointment(AppointmentCommand command) {
         Appointment appointment = new Appointment();
         appointment.setLastUpdated(new Date());

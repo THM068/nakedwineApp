@@ -5,11 +5,16 @@ demo\naked\appointment\config\BootStrap.class
 demo\naked\appointment\services\DriverService.class
 demo\naked\appointment\exceptions\BusinessException.class
 demo\naked\appointment\services\DriverRepository.class
+demo\naked\appointment\taglibs\SayToPlanetAttrProcessor.class
 demo\naked\appointment\commandObjects\AppointmentCommand.class
 demo\naked\appointment\services\AppointmentRespository.class
+demo\naked\appointment\config\TagLibConfig.class
+demo\naked\appointment\utils\TagUtility.class
 demo\naked\appointment\controller\DriverController.class
 demo\naked\appointment\domain\Appointment.class
 demo\naked\appointment\controller\AppointmentController.class
 demo\naked\appointment\domain\Driver.class
+demo\naked\appointment\taglibs\HelloDialect.class
 demo\naked\appointment\controller\Views.class
 demo\naked\appointment\utils\CONS.class
+demo\naked\appointment\taglibs\SayToAttrProcessor.class

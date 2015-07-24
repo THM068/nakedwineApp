@@ -21,5 +21,5 @@ public interface AppointmentService {
 
     public List<Appointment> getAllAppointments(Map<String,Object> sortAndPageMap);
 
-
+    public void helloService();
 }

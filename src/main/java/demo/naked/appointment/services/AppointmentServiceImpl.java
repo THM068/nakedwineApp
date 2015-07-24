@@ -22,6 +22,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private AppointmentRespository appointmentRespository;
 
+    public void helloService() {
+        System.out.println("Hello service in tag lib");
+    }
     @Autowired
     public AppointmentServiceImpl(AppointmentRespository appointmentRespository) {
         this.appointmentRespository = appointmentRespository;

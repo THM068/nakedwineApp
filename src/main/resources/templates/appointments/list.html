@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" >
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:hello="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Appointments : View all</title>
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h4>Appointments</h4>
+                <h4>Appointments for <span hello:sayto="Thando Mafela">Cool it down</span></h4>
                 <div class="panel panel-default">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -82,6 +82,12 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <ul >
+                <li th:each="planet : ${planets}" hello:saytoplanet="${planet}">Hello Planet!</li>
+            </ul>
+        </div>
     </div>
+
 </body>
 </html>
