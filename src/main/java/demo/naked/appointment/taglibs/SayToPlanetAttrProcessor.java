@@ -14,10 +14,10 @@ import org.thymeleaf.standard.expression.StandardExpressions;
 /**
  * Created by tm1c14 on 24/07/2015.
  */
-@Component
+
 public class SayToPlanetAttrProcessor extends AbstractTextChildModifierAttrProcessor {
 
-    @Autowired
+
     private AppointmentService appointmentService;
 
     public SayToPlanetAttrProcessor() {

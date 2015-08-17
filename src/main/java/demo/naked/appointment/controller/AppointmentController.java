@@ -4,8 +4,12 @@ import demo.naked.appointment.commandObjects.AppointmentCommand;
 import demo.naked.appointment.domain.Appointment;
 import demo.naked.appointment.exceptions.BusinessException;
 import demo.naked.appointment.services.AppointmentService;
+import demo.naked.appointment.websockets.Greeting;
+import demo.naked.appointment.websockets.HelloMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,7 +42,7 @@ public class AppointmentController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
-        return "redirect:/appointments";
+        return "appointments/index";
     }
 
     @RequestMapping(value = "/appointments")
@@ -109,6 +113,15 @@ public class AppointmentController {
         appointment.setDescription(command.getDescription());
 
         return appointment;
+    }
+
+    @MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    @RequestMapping(value = "/hello")
+    public Greeting greeting(HelloMessage message) throws Exception {
+        Thread.sleep(5000);
+        System.out.println("Hello you");
+        return new Greeting("Hello, " + message.getName() + "!");
     }
 
 
