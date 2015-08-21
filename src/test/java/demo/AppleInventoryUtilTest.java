@@ -6,11 +6,11 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.*;
 import java.util.Comparator;
-import java.util.List;
-
 /**
  * Created by tm1c14 on 17/08/2015.
  */
@@ -63,10 +63,10 @@ public class AppleInventoryUtilTest {
         Apple a6 = new Apple("purple", 165);
         apples.add(a6);
 
-        Comparator<Apple> comparator = (Apple a11, Apple a22) -> {
-            return a11.getWeight().compareTo(a22.getWeight());
-        };
-        apples.sort((comparator));
+//        Comparator<Apple> comparator = (Apple a11, Apple a22) -> {
+//            return a11.getWeight().compareTo(a22.getWeight());
+//        };
+//        apples.sort((comparator));
 
         return apples;
     }
@@ -82,4 +82,32 @@ public class AppleInventoryUtilTest {
             System.out.println(fileNames);
         }
     }
+
+    @Test
+    public void testFileReader() throws IOException {
+        String lines =  AppleInventoryUtil.processFile((BufferedReader br) ->{
+           StringBuilder builder = new StringBuilder();
+           String line = "";
+
+            while( (line = br.readLine())!= null) {
+                builder.append(String.format("%s\n", line));
+            }
+
+            return builder.toString();
+        });
+
+        Runnable r = () -> {System.out.println("Hello world ->"); };
+        Thread t = new Thread(r);
+        t.start();
+    }
+
+    @Test
+    public void methodReferenceTest() {
+        Collections.sort(appleList(), Comparator.comparing(Apple::getColor));
+
+        appleList().forEach((Apple apple) ->{
+            System.out.println(apple.getColor());
+        });
+    }
+
 }

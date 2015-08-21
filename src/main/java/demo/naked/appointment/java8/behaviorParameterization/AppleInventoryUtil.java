@@ -1,5 +1,8 @@
 package demo.naked.appointment.java8.behaviorParameterization;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,5 +38,11 @@ public class AppleInventoryUtil {
         }
 
         return result;
+    }
+
+    public static String processFile(BufferedReaderProcessor p) throws IOException {
+        try( BufferedReader br = new BufferedReader(new FileReader("C:\\workspace_tm\\nakedwineApp\\pom.xml"))) {
+            return p.process(br);
+        }
     }
 }
