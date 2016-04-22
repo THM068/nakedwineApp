@@ -42,6 +42,7 @@ public class AppointmentController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
+        new BusinessException("Some error");
         return "appointments/index";
     }
 

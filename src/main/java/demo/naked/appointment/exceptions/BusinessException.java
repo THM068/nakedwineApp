@@ -1,9 +1,11 @@
 package demo.naked.appointment.exceptions;
-
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.*;
 /**
  * Created by thandomafela on 03/07/15.
  */
-public class BusinessException extends Exception {
+@ResponseStatus( value = HttpStatus.NOT_FOUND )
+public class BusinessException extends RuntimeException {
 
     public BusinessException(String message) {
         this(message, new Throwable());

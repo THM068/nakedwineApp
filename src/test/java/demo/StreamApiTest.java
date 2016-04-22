@@ -61,7 +61,7 @@ public class StreamApiTest {
                                       .filter(Dish::isVegetarian)
                                       .collect(toList());
         System.out.println("----------------------------------------------");
-        vegetarianDishes.forEach((Dish dish) ->{
+        vegetarianDishes.forEach((Dish dish) -> {
             System.out.println(dish.getName());
         });
     }
